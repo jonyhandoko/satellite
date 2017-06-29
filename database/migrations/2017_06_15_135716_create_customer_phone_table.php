@@ -15,8 +15,15 @@ class CreateCustomerPhoneTable extends Migration
     {
         Schema::create('customer_phone', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
-            $table->timestamps();
+            $table->integer('customer_id');
+            $table->string('phone', 20);
+            $table->tinyInteger('row_status')->default(1);
+            $table->integer('updated_by');
+            $table->integer('created_by');
+            $table->integer('deleted_by');
+            $table->timestamp('deleted_at');
+            $table->timestamp('updated_at')->default(\DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
+            $table->timestamp('created_at');
         });
     }
 
@@ -27,6 +34,6 @@ class CreateCustomerPhoneTable extends Migration
      */
     public function down()
     {
-        Schema::drop('customer_phone');
+        //
     }
 }
