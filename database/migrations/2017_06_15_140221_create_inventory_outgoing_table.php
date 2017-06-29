@@ -28,9 +28,9 @@ class CreateInventoryOutgoingTable extends Migration
           $table->integer('updated_by');
           $table->integer('created_by');
           $table->integer('deleted_by');
-          $table->timestamp('deleted_at');
+          $table->timestamp('deleted_at')->default('0000-00-00 00:00:00');
           $table->timestamp('updated_at')->default(\DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
-          $table->timestamp('created_at');
+          $table->timestamp('created_at')->default('0000-00-00 00:00:00');
       });
     }
 

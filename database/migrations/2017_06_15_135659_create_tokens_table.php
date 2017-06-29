@@ -19,9 +19,9 @@ class CreateTokensTable extends Migration
             $table->string('token', 40);
             $table->boolean('forever')->default(false);
             $table->boolean('is_revoked')->default(false);
-            $table->timestamp('expiry');
+            $table->timestamp('expiry')->default('0000-00-00 00:00:00');
             $table->timestamp('updated_at')->default(\DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
-            $table->timestamp('created_at');
+            $table->timestamp('created_at')->default('0000-00-00 00:00:00');
         });
     }
 
