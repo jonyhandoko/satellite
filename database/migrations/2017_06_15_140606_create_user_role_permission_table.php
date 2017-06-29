@@ -17,7 +17,7 @@ class CreateUserRolePermissionTable extends Migration
             $table->increments('id');
             $table->integer('id_role');
             $table->integer('id_permission');
-            $table->timestamp('deleted_at');
+            $table->timestamp('deleted_at')->default('0000-00-00 00:00:00');
             $table->timestamp('updated_at')->default(\DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
         });
     }
