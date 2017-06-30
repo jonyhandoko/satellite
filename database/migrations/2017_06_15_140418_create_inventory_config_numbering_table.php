@@ -15,7 +15,12 @@ class CreateInventoryConfigNumberingTable extends Migration
     {
         Schema::create('config_numbering', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('format',255);
+            $table->string('prefix',100);
+            $table->integer('length');
+            $table->bigInteger('last_value');
+            $table->string('type',30);
+            $table->string('last_transaction_number',100);
+			$table->string('description',1000);
             $table->tinyInteger('row_status')->default(1);
             $table->integer('updated_by');
             $table->integer('created_by');

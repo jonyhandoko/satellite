@@ -15,8 +15,9 @@ class CreateInventoryIncomingTable extends Migration
     {
         Schema::create('inventory_incoming', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('supplier_id');
+            $table->string('transaction_number', 100);
             $table->string('incoming_note', 255);
+            $table->integer('supplier_id');
             $table->enum('incoming_status', ['pending', 'approve'])->default('pending');
             $table->enum('payment_status', ['paid', 'unpaid'])->default('unpaid');
             $table->tinyInteger('row_status')->default(1);

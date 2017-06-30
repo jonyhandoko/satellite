@@ -18,7 +18,8 @@ class CreateInventoryPaymentDetailTable extends Migration
             $table->integer('payment_id');
             $table->integer('payment_method_id');
             $table->string('payment_note',255);
-            $table->decimal('paid_amount', 14, 2);
+			$table->enum('record_type', ['draft', 'pay'])->default('pay');
+			$table->decimal('paid_amount', 14, 2);
             $table->tinyInteger('row_status')->default(1);
             $table->integer('updated_by');
             $table->integer('created_by');

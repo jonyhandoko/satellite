@@ -15,7 +15,9 @@ class CreateInventoryOutgoingTable extends Migration
     {
         Schema::create('inventory_outgoing', function (Blueprint $table) {
           $table->increments('id');
+          $table->string('transaction_number',100);
           $table->integer('customer_id');
+          $table->integer('salesman_id');
           $table->string('outgoing_note', 255);
           $table->enum('outgoing_status', ['pending', 'approve'])->default('pending');
           $table->enum('payment_status', ['paid', 'unpaid'])->default('unpaid');

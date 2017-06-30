@@ -16,7 +16,14 @@ class CreateInventoryPaymentTable extends Migration
         Schema::create('inventory_payment', function (Blueprint $table) {
             $table->increments('id');
             $table->enum('transaction_type', ['incoming', 'outgoing'])->default('outgoing');
-            $table->integer('master_id');
+			$table->enum('payment_type', ['single', 'tanda_terima'])->default('single');
+            $table->decimal('discount_percent', 14, 2);
+            $table->decimal('discount_nominal', 14, 2);
+            $table->decimal('discount_amount', 14, 2);
+            $table->integer('tax_id');
+            $table->decimal('tax_percent', 14, 2);
+            $table->decimal('tax_amount', 14, 2);
+			$table->integer('master_id');
             $table->decimal('total_amount', 14, 2);
             $table->decimal('paid_amount', 14, 2);
             $table->tinyInteger('row_status')->default(1);

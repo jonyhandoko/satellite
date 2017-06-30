@@ -20,6 +20,11 @@ class CreateInventoryOutgoingApproveTable extends Migration
             $table->decimal('selling_price', 14, 2);
             $table->integer('qty');
             $table->text('note');
+            $table->string('delivery_no',100);
+			$table->string('vehicle',100);
+			$table->string('driver',100);
+			$table->string('delivery_date',100);
+			$table->string('warehouse',100);
             $table->tinyInteger('row_status')->default(1);
             $table->integer('updated_by');
             $table->integer('created_by');

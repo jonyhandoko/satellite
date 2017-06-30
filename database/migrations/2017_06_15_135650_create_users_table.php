@@ -18,6 +18,11 @@ class CreateUsersTable extends Migration
             $table->string('username', 80)->unique();
             $table->string('email', 191)->unique();
             $table->string('password', 60);
+            $table->bigInteger('id_role');
+            $table->string('address',255);
+            $table->string('master_db',255);
+            $table->enum('is_active',[1,0]);
+            $table->integer('company_id');
             $table->integer('updated_by')->nullable();
             $table->integer('created_by')->nullable();
             $table->integer('deleted_by')->nullable();
